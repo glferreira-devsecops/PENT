@@ -1,0 +1,127 @@
+# ==============================================================================
+# Dorks para SuperScanner
+# ==============================================================================
+# Cada linha representa um dork utilizado para busca de URLs potencialmente
+# vulneráveis. Edite, adicione ou remova dorks conforme sua necessidade.
+# Recomendações:
+# - Utilize dorks específicos para o alvo ou tecnologia desejada.
+# - Evite dorks genéricos para reduzir falsos positivos.
+# - Consulte fontes como Exploit-DB, OWASP e fóruns de segurança para novas ideias.
+# - Linhas iniciadas com '#' são ignoradas.
+# ==============================================================================
+
+- site:.edu "phone number"
+- student "phone number"
+- inurl:edu "login"
+- "powered by vbulletin" site:.edu
+- "powered by vbulletin" site:.gov
+- "powered by vbulletin" site:.mil
+- "powered by vbulletin" inurl:.edu
+- "powered by vbulletin" inurl:.mil
+- inurl:.com "powered by vbulletin"
+- inurl:.edu "register forum"
+- inurl:.gov "register forum"
+- cache:www.google.com web
+- link:www.google.com
+- related:www.google.com
+- info:www.google.com
+- define:google
+- stocks:intc yhoo
+- help site:www.google.com
+- allintitle:google search
+- intitle:google search
+- allinurl:google search
+- inurl:google search
+- "Nina Simone intitle:"index.of" "parent directory" "size" "last modified" "description" I Put A Spell On You (mp4|mp3|avi|flac|aac|ape|ogg) -inurl:(jsp|php|html|aspx|htm|cf|shtml|lyrics-realm|mp3-collection) -site:.info"
+- "Bill Gates intitle:"index.of" "parent directory" "size" "last modified" "description" Microsoft (pdf|txt|epub|doc|docx) -inurl:(jsp|php|html|aspx|htm|cf|shtml|ebooks|ebook) -site:.info"
+- parent directory /appz/ -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+- parent directory DVDRip -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+- parent directory Xvid -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+- parent directory Gamez -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+- parent directory MP3 -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+- parent directory Name of Singer or album -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+- filetype:config inurl:web.config inurl:ftp
+- "Windows XP Professional" 94FBR
+- ext:(doc | pdf | xls | txt | ps | rtf | odt | sxw | psw | ppt | pps | xml) (intext:confidential salary | intext:"budget approved") inurl:confidential
+- ext:inc "pwd=" "UID="
+- ext:ini intext:env.ini
+- ext:ini Version=... password
+- ext:log "Software: Microsoft Internet Information Services _._"
+- ext:mdb inurl:_.mdb inurl:fpdb shop.mdb
+- filetype:SWF SWF
+- filetype:asp DBQ=" _ Server.MapPath("_.mdb")"
+- filetype:bak createobject sa
+- filetype:dat "password.dat"
+- filetype:eml eml +intext:"Subject" +intext:"From" +intext:"To"
+- filetype:inc dbconn
+- filetype:log inurl:"password.log"
+- filetype:reg reg +intext:"defaultusername" +intext:"defaultpassword"
+- filetype:sql "insert into" (pass|passwd|password)
+- filetype:url +inurl:"ftp://" +inurl:";@"
+- intext:"#mysql dump" filetype:sql
+- intext:"ASP.NET_SessionId" "data source="
+- intext:"Certificate Practice Statement" filetype:PDF | DOC
+- intext:"phpMyAdmin MySQL-Dump" "INSERT INTO" -"the"
+- intitle:"index of" +myd size
+- intitle:"index of" etc/shadow
+- intitle:"index of" htpasswd
+- intitle:"index of" master.passwd
+- intitle:"index of" members OR accounts
+- intitle:"index of" passwd
+- inurl:admin inurl:userlist
+- inurl:php?=id1
+- inurl:index.php?id=
+- inurl:trainers.php?id=
+- inurl:buy.php?category=
+- inurl:article.php?ID=
+- inurl:play_old.php?id=
+- inurl:declaration_more.php?decl_id=
+- inurl:pageid=
+- inurl:games.php?id=
+- inurl:page.php?file=
+- inurl:newsDetail.php?id=
+- inurl:gallery.php?id=
+- inurl:show.php?id=
+- inurl:staff_id=
+- inurl:newsitem.php?num=
+- inurl:"/?q=user/password/"
+- inurl:"/cgi-bin/guestimage.html" "Menu"
+- inurl:"/php/info.php" "PHP Version"
+- inurl:servicedesk/customer/user/login
+- inurl:view.shtml "Network"
+- inurl:woocommerce-exporter
+- inurl:/?op=register
+- inurl:/Jview.htm + "View Video - Java Mode"
+- inurl:/adfs/ls/?SAMLRequest
+- inurl:/eftclient/account/login.htm
+- inurl:/pro_users/login
+- inurl:/xprober ext:php
+- inurl:RichWidgets/Popup_Upload.aspx
+- inurl:authorization.ping
+- inurl:https://trello.com AND intext:@gmail.com AND intext:password
+- inurl:idp/Authn/UserPassword
+- inurl:login.seam
+- inurl:opac_css
+- "jdbc:mysql://localhost:3306/ + username + password ext:yml | ext:javascript -git -gitlab"
+- "jdbc:oracle://localhost: + username + password ext:yml | ext:java -git -gitlab"
+- "jdbc:postgresql://localhost: + username + password ext:yml | ext:java -git -gitlab"
+- site:*gov.* intitle:index.of db
+- site:checkin.*.* intitle:"login"
+- site:gov ext:sql | ext:dbf | ext:mdb
+- site:password.*.* intitle:"login"
+- site:portal.*.* intitle:"login"
+- ssh_host_dsa_key.pub + ssh_host_key + ssh_config = "index of / "
+- inurl:?XDEBUG_SESSION_START=phpstorm
+- inurl:/config/device/wcd
+- inurl:\"/phpmyadmin/user_password.php"
+- intext:\"SonarQube\" + \"by SonarSource SA.\" + \"LGPL v3\""
+- inurl:/phpPgAdmin/browser.php
+- "intitle:\"Microsoft Internet Information Services 8\" -IIS"
+- "intitle:\"index of\" \"docker.yml\""
+- "intitle:\"index of\" \"debug.log\" OR \"debug-log\""
+- "intitle:\"Welcome to JBoss\""
+- "intitle:\"index of\" \"powered by apache \" \"port 80\""
+- "site:ftp.*.com \"Web File Manager\""
+- "intitle:\"index of\" \"server at\""
+- "inurl:1051/viewer/live/index.html?lang=en"
+- "inurl:\"id=*\" & intext:\"warning mysql_fetch_array()\""
