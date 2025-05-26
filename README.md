@@ -113,3 +113,101 @@ Para iniciar a ferramenta, basta executar o script `scanner.py` na raiz do proje
 
 ```bash
 python scanner.py
+```
+O script seguirá o fluxo:
+
+
+1.  Verificará a presença de `sqlmap` e `Nmap`.
+2.  Carregará proxies de uma cache ou baixará e testará novos proxies.
+3.  Lerá as *dorks* do arquivo `dorks.txt`.
+4.  Executará as buscas no DuckDuckGo.
+5.  Testará as URLs encontradas com `sqlmap`.
+6.  Escaneará os hosts vulneráveis com `Nmap`.
+7.  Gerará o relatório final.
+
+
+---
+
+
+## ⚙️ Configuração
+
+
+* **Dorks:** Você pode personalizar as *dorks* a serem utilizadas editando o arquivo `dorks.txt`. Adicione uma *dork* por linha. Linhas iniciadas com `#` são ignoradas. Se o arquivo não existir, a ferramenta usará algumas *dorks* padrão.
+
+
+* **Constantes Globais:** Diversas configurações (como número de threads, timeouts, fontes de proxy, etc.) podem ser ajustadas diretamente nas variáveis globais no início do arquivo `scanner.py`. *Modifique com cautela.*
+
+
+---
+
+
+## 📄 Saída
+
+
+A ferramenta gera os seguintes artefactos:
+
+
+* **`super_scanner_report.json`:** Um arquivo JSON contendo um resumo da execução, incluindo proxies, URLs encontradas e URLs vulneráveis.
+
+
+* **`.working_proxies_cache.json`:** Uma cache dos proxies funcionais para acelerar execuções futuras (válido por 24 horas por padrão).
+
+
+* **`nmap_output/`:** Um diretório contendo os resultados das varreduras Nmap (um arquivo `.txt` para cada host escaneado).
+
+
+* **`sqlmap_output/`:** (Pode ser gerado pelo sqlmap) Potencialmente, diretórios de saída do sqlmap.
+
+
+---
+
+
+## ☕ Apoie o Projeto
+
+
+Gostou do Penta? Se esta ferramenta foi útil para você, considere pagar um café para o desenvolvedor! A sua contribuição ajuda a manter o projeto ativo e motiva o desenvolvimento de novas funcionalidades.
+
+
+<p align="center">
+  <a href="https://buymeacoffee.com/devferreirag" target="_blank">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Pague-me um Café">
+  </a>
+</p>
+
+
+---
+
+
+## 🤝 Contribuição
+
+
+Contribuições são sempre bem-vindas! Se você tem ideias para melhorias, novas funcionalidades ou encontrou algum bug, sinta-se à vontade para:
+
+
+1.  Fazer um *Fork* do projeto.
+2.  Criar uma nova *Branch* (`git checkout -b feature/SuaFeature`).
+3.  Fazer o *Commit* das suas mudanças (`git commit -m 'Adiciona SuaFeature'`).
+4.  Fazer o *Push* para a Branch (`git push origin feature/SuaFeature`).
+5.  Abrir um *Pull Request*.
+
+
+Por favor, tente manter um estilo de código consistente e documente as suas mudanças.
+
+
+---
+
+
+## 📜 Licença
+
+
+Este projeto é distribuído sob a licença [MIT](https://github.com/FuturoDevJunior/PENT/blob/FuturoDevJunior-v2.1/LICENSE). Consulte o arquivo `LICENSE` para obter mais informações.
+
+
+---
+
+
+## ⚠️ Aviso Legal
+
+
+Esta ferramenta foi desenvolvida para **fins educacionais e de pesquisa em segurança**. O uso desta ferramenta para atacar alvos sem consentimento prévio e explícito é **ilegal** e **antiético**. O autor **não se responsabiliza** por qualquer mau uso ou dano causado por esta ferramenta. **Use por sua conta e risco e sempre dentro da legalidade.**
+
