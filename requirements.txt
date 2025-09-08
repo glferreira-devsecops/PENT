@@ -1,6 +1,6 @@
 # Dependências principais do projeto Scanfer
 
-requests==2.32.2
+requests==2.32.4
 rich==13.7.0
 selenium==4.15.2
 selenium-stealth==1.0.6
